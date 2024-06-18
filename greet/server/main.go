@@ -10,7 +10,7 @@ import (
 
 const address = "0.0.0.0:50051"
 
-type Service struct {
+type Server struct {
 	pb.GreetServiceServer
 }
 
@@ -24,6 +24,7 @@ func main() {
 	log.Println("Listening on ", address)
 
 	serve := grpc.NewServer()
+	pb.RegisterGreetServiceServer(serve, &Server{})
 
 	if err = serve.Serve(lis); err != nil {
 		log.Fatalln("Failed to serve: ", err)
