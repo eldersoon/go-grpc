@@ -6,9 +6,9 @@ import (
 	pb "github.com/eldersoon/go-grpc/calculator/proto"
 )
 
-func (s *Server) Calculator(ctx context.Context, in *pb.CalculatorRequest, ) (*pb.CalculatorResponse, error) {
+func (s *Server) Sum(ctx context.Context, in *pb.SumRequest, ) (*pb.SumResponse, error) {
 
-	return &pb.CalculatorResponse{
+	return &pb.SumResponse{
 		Sum: in.Number1 + in.Number2,
 	}, nil
 }
